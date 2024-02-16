@@ -1,0 +1,53 @@
+<div class="p-2">
+    <h2 *ngIf="isAddMode">Agregar Producto</h2>
+    <h2 *ngIf="!isAddMode">Editar Producto</h2>
+    <div style="height: 20px;">
+        <label *ngIf="productUpdated" style="color:green">Producto actualizado correctamente</label>
+        <label *ngIf="productCreated" style="color:green">Producto creado correctamente</label>
+    </div>
+    <br />
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <div class="form-row">
+            <div class="form-group col">
+                <label>Nombre</label>&nbsp;
+                <input type="text" formControlName="name">
+            </div>
+            <div class="form-group col">
+                <label>Precio</label>&nbsp;
+                <input type="text" formControlName="price">
+            </div>
+            <div class="form-group col">
+                <label>Descripción</label>&nbsp;
+                <input type="text" formControlName="description">
+            </div>
+            <div class="form-group col">
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col">
+                <label>E-mail</label>&nbsp;
+                <input type="text" formControlName="mail">
+            </div>
+            <div class="form-group col">
+                <label>Fecha</label>&nbsp;
+                <input type="text" formControlName="fecha">
+            </div>
+            <div class="form-group col">
+            </div>
+            <div class="form-group col">
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col">
+                <button type="submit" class="btn btn-primary">Guardar</button>&nbsp;
+                <a (click)="volver();" style="cursor:pointer; color:blue">Volver</a>
+            </div>
+            <div class="form-group col">
+            </div>
+            <div class="form-group col">
+            </div>
+            <div class="form-group col">
+            </div>
+        </div>
+    </form>
+</div>

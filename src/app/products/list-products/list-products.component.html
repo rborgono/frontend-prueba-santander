@@ -1,0 +1,48 @@
+<div class="p-2">
+    <h2>Listado de Productos</h2>
+    <br />
+    
+    <div style="width:80%">
+        <div style="height: 20px;">
+            <label class="float-left" *ngIf="productDeleted" style="color:green">Producto eliminado correctamente</label>
+            <label class="float-left" *ngIf="productCouldNotBeDeleted" style="color:red">Producto no pudo ser
+                eliminado</label>
+            <p class="float-right">
+                <a routerLink="../create-update-product" routerLinkActive="active">Agregar Producto</a>
+            </p>
+        </div>
+    </div>
+    <table class="table table-striped" style="width:80%">
+        <thead>
+            <tr>
+                <th style="width: 18%;">Nombre</th>
+                <th style="width: 13%;">Precio</th>
+                <th style="width: 18%;">Descripción</th>
+                <th style="width: 18%;">E-mail</th>
+                <th style="width: 18%;">Fecha</th>
+                <th style="width: 15%;"></th>
+            </tr>
+        </thead>
+        <tr *ngFor="let product of products">
+            <td>{{ product.name }}</td>
+            <td>{{ product.price }}</td>
+            <td>{{ product.description }}</td>
+            <td>{{ product.mail }}</td>
+            <td>{{ product.fecha }}</td>
+            <td>
+                <div class="container">
+                    <div class="row">
+                        <div class="col">
+                            <a routerLink="../create-update-product/{{product._id}}" routerLinkActive="active">Editar</a>
+                        </div>
+                        <div class="col">
+                            <a (click)="deleteProduct(product._id)" style="cursor: pointer; color:red">Eliminar</a>
+                        </div>
+                    </div>
+                </div>
+            </td>
+        </tr>
+    </table>
+    
+    <a routerLink="../home" routerLinkActive="active">Regresar al Home</a>
+</div>
